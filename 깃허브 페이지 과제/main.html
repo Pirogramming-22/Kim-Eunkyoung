@@ -1,11 +1,121 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Github</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: #24292e;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex: 1;
+            height: 100vh;
+            padding: 0 10%;
+        }
+        .left {
+            max-width: 50%;
+        }
+        .left h1 {
+            font-size: 56px;
+            margin-bottom: 20px;
+        }
+        .left p {
+            font-size: 20px;
+            line-height: 1.6;
+        }
+        .right {
+            background-color: #f6f8fa;
+            color: black;
+            border-radius: 6px;
+            padding: 30px;
+            width: 400px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .formcss {
+            margin-bottom: 15px;
+        }
+        .formcss label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+
+        .formcss input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #d1d5da;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        .formcss small {
+            font-size: 12px;
+            color: #586069;
+        }
+
+        .signup-button {
+            width: 100%;
+            padding: 10px;
+            background-color: #2ea44f;
+            border: none;
+            color: white;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .signup-button:hover {
+            background-color: #22863a;
+        }
+        .footer {
+            /* position: relative; */
+            height: 100px;
+            background-color: white;
+            background-image: url('./footer.png');
+            background-repeat: no-repeat;
+            background-position: bottom right;
+            background-size: contain;
+        }
+    </style>
 </head>
 <body>
-    
+    <div class="container">
+        <div class="left">
+            <h1>Build for developers</h1>
+            <p>
+                GitHub is a development platform inspired by the way you work. From open source to business, 
+                you can host and review code, manage projects, and build software alongside 50 million developers.
+            </p>
+        </div>
+        <div class="right">
+            <div class="formcss">
+                <form>
+                    <div>
+                        <label for="username">Username</label>
+                        <input type="text" id="username" name="username">
+                    </div>
+                    <div>
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email">
+                    </div>
+                    <div>
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password">
+                        <small>Make sure it's at least 15 characters OR at least 8 characters including a number and a lowercase letter.</small>
+                    </div>
+                    <button type="submit" class="signup-button">Sign up for GitHub</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="footer"></div>
 </body>
 </html>
