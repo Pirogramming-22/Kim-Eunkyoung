@@ -64,9 +64,14 @@
             background-color: #30363d;
             color: white;
             margin-right: 10px;
+            transition: background-color 0.3s ease;
         }
         .navbar-right input[type="text"]::placeholder {
             color: #d1d5da;
+        }
+        .navbar-right input[type="text"]:not(:placeholder-shown) {
+            background-color: white;
+            color: black;
         }
         .navbar-right a {
             color: white;
@@ -181,7 +186,7 @@
             <a href="#">Pricing</a>
         </div>
         <div class="navbar-right">
-            <input type="text" placeholder="Search GitHub">
+            <input type="text" placeholder="Search GitHub" id="search-github">
             <a href="#">Sign in</a>
             <a href="#">Sign up</a>
         </div>
