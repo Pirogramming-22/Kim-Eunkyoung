@@ -234,6 +234,13 @@ body {
 }
 
 
+.team-members span:first-child {
+    background-color: #007BFF; /* 파란색 */
+    color: white; /* 텍스트 색상 변경 */
+    font-weight: bold; /* 강조 효과 */
+}
+
+
 .project-hamburger {
     width: 20px;
     height: 20px;
@@ -251,6 +258,93 @@ body {
     background-color: rgba(236, 236, 236, 0.466);
     transition: 0.3s;
 }
+.project:hover .project-hamburger > div {
+    width: 50%; /* 찌그러지는 효과 */
+}
+
+
+.footer-top a:hover, .footer--contact .emoji:hover, .footer--nav a:hover {
+    transform: translate(0, -2px);
+}
+
+.footer-top .emoji img:hover {
+    transform: translate(0, -2px);
+}
+
+.footer-top li:hover, .footer--contact a:hover, .footer--contact .emoji:hover, .footer--contact .emoji img:hover, .footer-nav li:hover, .footer-nav a:hover {
+    transform: translate(0, -2px);
+}
+
+.max-width-1200 {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-top {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-top li {
+    margin-bottom: 15px;
+}
+
+.rule-link {
+    display: flex;
+    align-items: center;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.rule-link svg {
+    margin-left: 8px;
+}
+
+.footer-icons {
+    display: flex;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.emoji {
+    display: flex;
+    align-items: center;
+}
+
+.emoji img {
+    width: 24px;
+    height: 24px;
+}
+
+.footer--contact a {
+    color: #fff;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.footer-nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 30px;
+}
+
+.footer-nav a {
+    color: #fff;
+    text-decoration: none;
+}
 
 
 
@@ -259,4 +353,92 @@ body {
     font: inherit;
     vertical-align: baseline;
     text-align: center;
+}
+
+
+/* 992px ~ 1400px: 중간 크기 화면 */
+@media (max-width: 1400px) and (min-width: 992px) {
+    .project {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    .project-pic {
+        width: 130px;
+        height: 100px;
+    }
+
+    .project-name h2 {
+        font-size: 16px;
+    }
+
+    .project-name p {
+        font-size: 13px;
+    }
+}
+
+/* 768px ~ 992px: 태블릿 화면 */
+@media (max-width: 992px) and (min-width: 768px) {
+    .project {
+        flex-direction: column; /* 세로 배치 */
+        align-items: center;
+    }
+
+    .project-pic {
+        width: 120px;
+        height: 90px;
+    }
+
+    .team-members {
+        justify-content: center;
+    }
+
+    .project-name {
+        text-align: center;
+    }
+}
+
+/* 350px ~ 768px: 모바일 화면 */
+@media (max-width: 768px) and (min-width: 350px) {
+    .project {
+        flex-direction: column; /* 세로 배치 */
+        align-items: center;
+    }
+
+    .project-pic {
+        width: 100px;
+        height: 80px;
+    }
+
+    .project-name {
+        text-align: center;
+    }
+
+    .team-members {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .project-hamburger {
+        right: 8px; /* 위치 조정 */
+        top: 8px;
+    }
+
+    .navbar {
+        flex-direction: column; /* 네비게이션 버튼 세로 배치 */
+        gap: 12px;
+    }
+
+    .navbar > button {
+        font-size: 18px;
+    }
+
+    .header-bottom {
+        padding: 0 20px;
+    }
+
+    .now, .next {
+        font-size: 16px;
+        margin-left: 0;
+    }
 }
