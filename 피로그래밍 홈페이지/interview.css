@@ -1,0 +1,336 @@
+* {
+    margin: 0;
+    padding: 5px 5px;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: black;
+    color: white;
+}
+
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    padding: 50px;
+}
+
+.logo {
+    height: 40px;
+    cursor: pointer;
+}
+
+.navbar {
+    flex: 2;
+    display: flex;
+    justify-content: flex-end;
+    gap: 24px;
+}
+.navbar > button {
+    font-size: 25px;
+    align-items: center;
+    border: none;
+    color: white;
+    background-color: black;
+    cursor: pointer;
+}
+.navbar > button:hover {
+    transform: translate(0, -2px);
+}
+.pagenow {
+    color:#0BEC12;
+}
+.header-bottom {
+    display: flex;
+    padding: 0 100px;
+    margin-bottom: 20px;
+    font-size: 25px;
+    text-align: center;
+}
+.now {
+    flex: 15;
+    display:flex;
+    justify-content: center;
+    margin-left: 100px;
+}
+
+.next {
+    font-size: 20px;
+}
+
+
+/* Cards */
+.content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 20px;
+}
+
+@media (max-width: 992px) {
+    .content {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .content {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+.card {
+    background-color: #333;
+    border-radius: 10px;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.card img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+.card:hover img {
+    transform: scale(1.1);
+}
+
+.card-content {
+    flex: 1;
+}
+
+.card-content h3 {
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+.badge {
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    color: white;
+}
+
+.major {
+    background-color: #007BFF;
+}
+
+.card-content p {
+    margin-top: 8px;
+    font-size: 14px;
+}
+
+.hamburger-menu {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.hamburger-menu div {
+    width: 20px;
+    height: 2px;
+    background-color: white;
+    transition: width 0.3s ease;
+}
+
+.card:hover .hamburger-menu div {
+    width: 50%;
+}
+
+
+.footer-top a:hover, .footer--contact .emoji:hover, .footer--nav a:hover {
+    transform: translate(0, -2px);
+}
+
+.footer-top .emoji img:hover {
+    transform: translate(0, -2px);
+}
+
+.footer-top li:hover, .footer--contact a:hover, .footer--contact .emoji:hover, .footer--contact .emoji img:hover, .footer-nav li:hover, .footer-nav a:hover {
+    transform: translate(0, -2px);
+}
+
+.max-width-1200 {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-top {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-top li {
+    margin-bottom: 15px;
+}
+
+.rule-link {
+    display: flex;
+    align-items: center;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+
+.rule-link svg {
+    margin-left: 8px;
+}
+
+.footer-icons {
+    display: flex;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.emoji {
+    display: flex;
+    align-items: center;
+}
+
+.emoji img {
+    width: 24px;
+    height: 24px;
+}
+
+.footer--contact a {
+    color: #fff;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.footer-nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 30px;
+}
+
+.footer-nav a {
+    color: #fff;
+    text-decoration: none;
+}
+
+
+
+.footer-bottom {
+    border: 0;
+    font: inherit;
+    vertical-align: baseline;
+    text-align: center;
+}
+
+
+/* 992px ~ 1400px: 중간 크기 화면 */
+@media (max-width: 1400px) and (min-width: 992px) {
+    .project {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    .project-pic {
+        width: 130px;
+        height: 100px;
+    }
+
+    .project-name h2 {
+        font-size: 16px;
+    }
+
+    .project-name p {
+        font-size: 13px;
+    }
+}
+
+/* 768px ~ 992px: 태블릿 화면 */
+@media (max-width: 992px) and (min-width: 768px) {
+    .project {
+        flex-direction: column; /* 세로 배치 */
+        align-items: center;
+    }
+
+    .project-pic {
+        width: 120px;
+        height: 90px;
+    }
+
+    .team-members {
+        justify-content: center;
+    }
+
+    .project-name {
+        text-align: center;
+    }
+}
+
+/* 350px ~ 768px: 모바일 화면 */
+@media (max-width: 768px) and (min-width: 350px) {
+    .project {
+        flex-direction: column; /* 세로 배치 */
+        align-items: center;
+    }
+
+    .project-pic {
+        width: 100px;
+        height: 80px;
+    }
+
+    .project-name {
+        text-align: center;
+    }
+
+    .team-members {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .project-hamburger {
+        right: 8px; /* 위치 조정 */
+        top: 8px;
+    }
+
+    .navbar {
+        flex-direction: column; /* 네비게이션 버튼 세로 배치 */
+        gap: 12px;
+    }
+
+    .navbar > button {
+        font-size: 18px;
+    }
+
+    .header-bottom {
+        padding: 0 20px;
+    }
+
+    .now, .next {
+        font-size: 16px;
+        margin-left: 0;
+    }
+}
