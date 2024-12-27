@@ -60,7 +60,7 @@ body {
     font-size: 20px;
 }
 
-.project {
+/* .project {
     width: 100%;
     background-color: #333333;
     border-radius: 10px;
@@ -133,8 +133,124 @@ body {
     display: flex;
     gap: 8px;
     flex-wrap: wrap;
+} */
+
+/* .project {
+    width: 100%;
+    background-color: #333333;
+    border-radius: 10px;
+    padding: 16px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start; 
+    gap: 16px;
+    margin-bottom: 16px;
+    cursor: pointer;
+    position: relative;
+    transition: transform 0.3s ease-in-out;
+    border: 1px solid black;
+    } */
+
+
+    .project {
+        width: 100%;
+        background-color: #333333;
+        border-radius: 10px;
+        padding: 16px;
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 16px;
+        margin-bottom: 16px;
+        cursor: pointer;
+        position: relative; /* 자식 요소의 절대 위치 기준 */
+        transition: transform 0.3s ease-in-out;
+        border: 1px solid black;
+    }
+
+.project:hover {
+    top: -2px;
 }
 
+.project-pic {
+    width: 150px;
+    height: 110px;
+    background-color: white;
+    overflow: hidden;
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.project-pic img {
+    width: 100%;
+    object-fit: contain;
+    transition: 0.3s;
+    padding: 1rem 2rem;
+}
+
+.project:hover .project-pic img {
+    transform: scale(1.1);
+}
+
+/* 프로젝트 이름과 설명 정렬 */
+.project-name {
+    flex: 2; /* 이름과 설명이 충분한 공간 차지 */
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    justify-content: center;
+    color: white;
+}
+
+.project-name h2 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.project-name p {
+    margin: 0;
+    font-size: 14px;
+    color: #ccc;
+}
+
+/* 팀원 목록 아래 배치 */
+.team-members {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.team-members span {
+    background-color: #555555;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    color: white;
+}
+
+
+.project-hamburger {
+    width: 20px;
+    height: 20px;
+    position: absolute; /* 부모 기준으로 절대 위치 지정 */
+    right: 16px; /* 오른쪽에서 16px 떨어짐 */
+    top: 16px; /* 상단에서 16px 떨어짐 */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.project-hamburger > div {
+    width: 100%;
+    height: 2px;
+    background-color: rgba(236, 236, 236, 0.466);
+    transition: 0.3s;
+}
 
 
 
