@@ -32,10 +32,6 @@
     transition: transfomr var(--animation-duration) ease;
   }
 
-  .logo:hover {
-    transform: scale(1.1);
-  }
-
   .btn {
     background-color: transparent;
     border: none;
@@ -92,6 +88,11 @@
     align-items: center;
     padding: var(--base-space);
     margin-bottom: var(--base-space);
+  }
+
+  .item.invisible {
+    background-color: var(--color-white);
+    display: none;
   }
 
   .item__thumbnail {
