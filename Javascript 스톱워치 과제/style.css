@@ -1,7 +1,6 @@
-/* 기본 스타일 */
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #f9f9f9; /* 배경색을 밝게 조정 */
+    background-color: #f9f9f9; 
     margin: 0;
     padding: 0;
     display: flex;
@@ -12,16 +11,15 @@ body {
 
 .stopwatch-container {
     text-align: center;
-    border-radius: 20px; /* 둥근 모서리는 유지 */
+    border-radius: 20px;
     padding: 30px 40px;
     width: 450px;
-    /* 배경색과 그림자 제거 */
     background-color: transparent;
     box-shadow: none;
 }
 
 h1 {
-    font-size: 1.8rem; /* 폰트 크기 증가 */
+    font-size: 1.8rem; 
     color: #333;
     font-weight: bold;
     margin-bottom: 25px;
@@ -29,39 +27,39 @@ h1 {
 
 .stopwatch {
     background-color: #e5ebe9;
-    padding: 30px; /* 패딩 증가 */
-    border-radius: 25px; /* 둥근 모서리 강조 */
-    box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.15); /* 내부 그림자 */
-    margin-bottom: 25px; /* 아래 여백 증가 */
+    padding: 30px; 
+    border-radius: 25px; 
+    box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.15); 
+    margin-bottom: 25px; 
 }
 
 .timer-display {
-    font-size: 3.5rem; /* 폰트 크기 증가 */
+    font-size: 3.5rem; 
     font-weight: bold;
     color: #000;
     background-color: #ffffff;
-    padding: 15px 40px; /* 패딩 증가 */
-    border-radius: 20px; /* 더 둥글게 */
-    margin-bottom: 25px; /* 여백 증가 */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 그림자 강조 */
+    padding: 15px 40px; 
+    border-radius: 20px; 
+    margin-bottom: 25px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
     display: inline-block;
 }
 
 .controls {
     display: flex;
     justify-content: center;
-    gap: 20px; /* 버튼 간 간격 증가 */
+    gap: 20px; 
 }
 
 .control-btn-start {
     background-color: #ffffff;
     border: none;
     border-radius: 50%;
-    width: 70px; /* 버튼 크기 증가 */
+    width: 70px; 
     height: 70px;
-    font-size: 1.2rem; /* 버튼 텍스트 크기 증가 */
+    font-size: 1.2rem; 
     cursor: pointer;
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); /* 그림자 강조 */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); 
     transition: all 0.3s ease;
     font-weight: bold;
 }
@@ -69,11 +67,11 @@ h1 {
     background-color: #ffffff;
     border: none;
     border-radius: 50%;
-    width: 70px; /* 버튼 크기 증가 */
+    width: 70px; 
     height: 70px;
-    font-size: 1.2rem; /* 버튼 텍스트 크기 증가 */
+    font-size: 1.2rem; 
     cursor: pointer;
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); /* 그림자 강조 */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); 
     transition: all 0.3s ease;
     font-weight: bold;
 }
@@ -81,11 +79,11 @@ h1 {
     background-color: #ffffff;
     border: none;
     border-radius: 50%;
-    width: 70px; /* 버튼 크기 증가 */
+    width: 70px; 
     height: 70px;
-    font-size: 1.2rem; /* 버튼 텍스트 크기 증가 */
+    font-size: 1.2rem; 
     cursor: pointer;
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); /* 그림자 강조 */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); 
     transition: all 0.3s ease;
     font-weight: bold;
 }
@@ -93,43 +91,57 @@ h1 {
 .record-section {
     background-color: #e5ebe9;
     border-radius: 20px;
-    padding: 15px 25px; /* 패딩 증가 */
+    padding: 15px 25px;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
-    margin-top: 20px; /* 위쪽 여백 추가 */
+    margin-top: 20px;
 }
 
 .record-title {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 1.3rem; /* 폰트 크기 증가 */
+    font-size: 1.3rem;
     color: #333;
     font-weight: bold;
 }
 
-/* .check-box {
-    background: none;
-    border: none;
-    font-size: 1.8rem;
+
+.checkbox,
+.record-checkbox {
+    appearance: none; 
+    -webkit-appearance: none; 
+    width: 20px; 
+    height: 20px;
+    border: 2px solid #333; 
+    border-radius: 50%; 
+    outline: none;
     cursor: pointer;
-    color: #666;
-    transition: color 0.3s ease;
+    display: inline-block;
+    background-color: #fff; 
+    position: relative;
 }
 
-.check-box img {
-    width: 30px;
-    height: 30px;
-} */
+.checkbox:checked::after,
+.record-checkbox:checked::after {
+    content: '✔'; 
+    font-size: 14px; 
+    color: #333; 
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
 
-.checkbox {
-    width: 20px;
-    height: 20px;
+/* 선택되지 않은 상태 */
+.checkbox,
+.record-checkbox {
+    background-color: #fff;
 }
 
 .delete-btn {
     background: none;
     border: none;
-    font-size: 1.8rem; /* 크기 증가 */
+    font-size: 1.8rem; 
     cursor: pointer;
     color: #666;
     transition: color 0.3s ease;
@@ -143,9 +155,9 @@ h1 {
 .record-section {
     background-color: #e5ebe9;
     border-radius: 20px;
-    padding: 15px 25px; /* 패딩 증가 */
+    padding: 15px 25px; 
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
-    margin-top: 20px; /* 위쪽 여백 추가 */
+    margin-top: 20px; 
 }
 
 .record-title {
@@ -165,27 +177,23 @@ h1 {
 }
 
 .record-list {
-    margin-top: 15px; /* 제목과 기록 리스트 간격 */
+    margin-top: 15px; 
     display: flex;
-    flex-direction: column; /* 수직 정렬 */
-    align-items: center; /* 수평 가운데 정렬 */
-    gap: 10px; /* 기록 간 간격 */
+    flex-direction: column; 
+    align-items: center; 
+    gap: 10px; 
 }
 
 .record-item {
-    display: flex; /* 플렉스 레이아웃 사용 */
-    align-items: center; /* 세로 정렬 가운데 */
-    justify-content: center; /* 내부 요소도 가운데 정렬 */
-    font-size: 1.2rem; /* 글씨 크기 */
-    font-family: 'Arial', sans-serif; /* 글꼴 */
-    color: #333; /* 글씨 색상 */
-    width: 100%; /* 기록 너비 조정 */
-}
-
-.record-checkbox {
-    margin-right: 10px; /* 체크박스와 텍스트 사이 간격 */
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    font-size: 1.2rem; 
+    font-family: 'Arial', sans-serif; 
+    color: #333; 
+    width: 100%; 
 }
 
 .record-text {
-    text-align: left; /* 텍스트를 왼쪽 정렬 */
+    text-align: left;
 }
