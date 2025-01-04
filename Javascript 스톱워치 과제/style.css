@@ -1,0 +1,199 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f9f9f9; 
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.stopwatch-container {
+    text-align: center;
+    border-radius: 20px;
+    padding: 30px 40px;
+    width: 450px;
+    background-color: transparent;
+    box-shadow: none;
+}
+
+h1 {
+    font-size: 1.8rem; 
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 25px;
+}
+
+.stopwatch {
+    background-color: #e5ebe9;
+    padding: 30px; 
+    border-radius: 25px; 
+    box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.15); 
+    margin-bottom: 25px; 
+}
+
+.timer-display {
+    font-size: 3.5rem; 
+    font-weight: bold;
+    color: #000;
+    background-color: #ffffff;
+    padding: 15px 40px; 
+    border-radius: 20px; 
+    margin-bottom: 25px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    display: inline-block;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 20px; 
+}
+
+.control-btn-start {
+    background-color: #ffffff;
+    border: none;
+    border-radius: 50%;
+    width: 70px; 
+    height: 70px;
+    font-size: 1.2rem; 
+    cursor: pointer;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); 
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+.control-btn-stop {
+    background-color: #ffffff;
+    border: none;
+    border-radius: 50%;
+    width: 70px; 
+    height: 70px;
+    font-size: 1.2rem; 
+    cursor: pointer;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); 
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+.control-btn-reset {
+    background-color: #ffffff;
+    border: none;
+    border-radius: 50%;
+    width: 70px; 
+    height: 70px;
+    font-size: 1.2rem; 
+    cursor: pointer;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); 
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+
+.record-section {
+    background-color: #e5ebe9;
+    border-radius: 20px;
+    padding: 15px 25px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.record-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.3rem;
+    color: #333;
+    font-weight: bold;
+}
+
+
+.checkbox,
+.record-checkbox {
+    appearance: none; 
+    -webkit-appearance: none; 
+    width: 20px; 
+    height: 20px;
+    border: 2px solid #333; 
+    border-radius: 50%; 
+    outline: none;
+    cursor: pointer;
+    display: inline-block;
+    background-color: #fff; 
+    position: relative;
+}
+
+.checkbox:checked::after,
+.record-checkbox:checked::after {
+    content: '✔'; 
+    font-size: 14px; 
+    color: #333; 
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* 선택되지 않은 상태 */
+.checkbox,
+.record-checkbox {
+    background-color: #fff;
+}
+
+.delete-btn {
+    background: none;
+    border: none;
+    font-size: 1.8rem; 
+    cursor: pointer;
+    color: #666;
+    transition: color 0.3s ease;
+}
+
+.delete-btn img {
+    width: 30px;
+    height: 30px;
+}
+
+.record-section {
+    background-color: #e5ebe9;
+    border-radius: 20px;
+    padding: 15px 25px; 
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 20px; 
+}
+
+.record-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1.2rem;
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    font-weight: bold;
+}
+
+.record-title-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+.record-list {
+    margin-top: 15px; 
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    gap: 10px; 
+}
+
+.record-item {
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    font-size: 1.2rem; 
+    font-family: 'Arial', sans-serif; 
+    color: #333; 
+    width: 100%; 
+}
+
+.record-text {
+    text-align: left;
+}
