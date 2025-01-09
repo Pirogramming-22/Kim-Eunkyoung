@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Movie reviews</title>
+    <style>
+        a {
+            text-decoration: none;
+        }
+
+        body {
+            background-color: beige;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .main_text {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #2e7d32;
+            margin-bottom: 20px;
+            text-align: center;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        .button-content {
+            text-align: center;
+        }
+
+        .button_list {
+            border-radius: 12px;
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+            margin: 10px;
+        }
+        
+        .button_list:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .button_create {
+            border-radius: 12px;
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+            margin: 10px;
+        }
+
+        .button_create:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+        }
+    </style>
+</head>
+<body>
+    <div class="main_text">Movie reviews</div>
+    <div class="button_content">
+        <a href="./list.html">
+            <button class="button_list">영화 리뷰 리스트</button>
+        </a>
+        <a href="./create.html">
+            <button class="button_create">영화 리뷰 작성</button>
+        </a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Movie reviews</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            border-bottom: 1px solid #ddd;
+        }
+        .header_left a {
+            text-decoration: none;
+            font-size: 24px;
+            font-weight: bold;
+            color: black;
+        }
+        .header_left .header_movie {
+            color: red;
+        }
+        .header_right a {
+            text-decoration: none;
+            font-size: 14px;
+            color: black;
+        }
+        .header_right a:hover {
+            text-decoration: none;
+        }
+
+        .create_title {
+            text-align: center;
+            font-size: 24px;
+            margin: 20px 0;
+        }
+        .create_title span {
+            color: red;
+            font-weight: bold;
+        }
+        hr {
+            margin: 0 20px;
+            border: 1px solid #ccc;
+        }
+        form {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        form label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        form input, form select, form textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        form textarea {
+            height: 100px;
+            resize: none;
+        }
+        form button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: black;
+            background-color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        form button:hover {
+            background-color: skyblue;
+        }
+        .form_button {
+            display: flex;
+            justify-content: flex-end;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header_left">
+            <a href="./list.html">my<span class="header_movie">Movie</span>reviews</a>
+        </div>
+        <div class="header_right">
+            <a href="#">Add a New review</a>
+        </div>
+    </header>
+    <section>
+        
+        <form>
+            <div class="create_title"><span>Movie</span> review</div>
+            <hr>
+            <br>
+            <label for="title">제목:</label>
+            <input type="text" id="title" name="title" placeholder="영화 제목을 입력하세요">
+            
+            <label for="year">개봉년도:</label>
+            <input type="number" id="year" name="year" placeholder="예: 2023">
+            
+            <label for="genre">장르:</label>
+            <select id="genre" name="genre">
+                <option value="">--------</option>
+                <option value="action">액션</option>
+                <option value="comedy">코미디</option>
+                <option value="drama">드라마</option>
+                <option value="horror">호러</option>
+                <option value="sci-fi">SF</option>
+            </select>
+            
+            <label for="rating">별점:</label>
+            <input type="number" id="rating" name="rating" min="0" max="5" step="0.1" placeholder="0~5">
+            
+            <label for="runtime">러닝타임:</label>
+            <input type="text" id="runtime" name="runtime" placeholder="예: 120분">
+            
+            <label for="review">리뷰:</label>
+            <textarea id="review" name="review" placeholder="리뷰를 작성하세요"></textarea>
+            
+            <label for="director">감독:</label>
+            <input type="text" id="director" name="director" placeholder="감독 이름을 입력하세요">
+            
+            <label for="actors">배우:</label>
+            <input type="text" id="actors" name="actors" placeholder="배우 이름을 입력하세요">
+            
+            <div class="form_button">
+                <button type="submit">Save</button>
+            </div>
+        </form>
+    </section>
+</body>
+</html>
