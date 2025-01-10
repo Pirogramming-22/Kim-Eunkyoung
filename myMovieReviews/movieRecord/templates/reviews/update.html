@@ -107,14 +107,14 @@
             <hr>
             <br>
             <label for="title">제목:</label>
-            <input type="text" id="title" name="title" placeholder="영화 제목을 입력하세요" value="{{ list.title }}">
+            <input type="text" id="title" name="title" value="{{ list.title }}" placeholder="영화 제목을 입력하세요">
             
             <label for="year">개봉년도:</label>
-            <input type="number" id="year" name="year" placeholder="예: 2023" value="{{ list.year }}">
+            <input type="number" id="year" name="year" value="{{ list.year }}" placeholder="예: 2023">
             
             <label for="genre">장르:</label>
             <select id="genre" name="genre">
-                <option value="" {% if not list.genre %}selected{% endif %}>--------</option>
+                <option value="">--------</option>
                 <option value="action" {% if list.genre == "action" %}selected{% endif %}>액션</option>
                 <option value="comedy" {% if list.genre == "comedy" %}selected{% endif %}>코미디</option>
                 <option value="drama" {% if list.genre == "drama" %}selected{% endif %}>드라마</option>
@@ -123,24 +123,24 @@
             </select>
             
             <label for="rating">별점:</label>
-            <input type="number" id="rating" name="rating" min="0" max="5" step="0.1" placeholder="0~5" value="{{ list.rating }}">
+            <input type="number" id="rating" name="rating" value="{{ list.rating }}" min="0" max="5" step="0.1" placeholder="0~5">
             
             <label for="runtime">러닝타임:</label>
-            <input type="text" id="runtime" name="runtime" placeholder="예: 120분" value="{{ list.runtime }}">
+            <input type="text" id="runtime" name="runtime" value="{{ list.runtime }}" placeholder="예: 120분">
             
             <label for="review">리뷰:</label>
             <textarea id="review" name="review" placeholder="리뷰를 작성하세요">{{ list.review }}</textarea>
             
             <label for="director">감독:</label>
-            <input type="text" id="director" name="director" placeholder="감독 이름을 입력하세요" value="{{ list.director }}">
+            <input type="text" id="director" name="director" value="{{ list.director }}" placeholder="감독 이름을 입력하세요">
             
             <label for="actors">배우:</label>
-            <input type="text" id="actors" name="actors" placeholder="배우 이름을 입력하세요" value="{{ list.actors }}">
+            <input type="text" id="actors" name="actors" value="{{ list.actors }}" placeholder="배우 이름을 입력하세요">
             
             <div class="form_button">
                 <button type="submit">Save</button>
             </div>
-        </form>
+        </form>        
     </section>
 </body>
 </html>
