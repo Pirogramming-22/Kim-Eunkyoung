@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Movie reviews</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            border-bottom: 1px solid #ddd;
+        }
+        .header_left a {
+            text-decoration: none;
+            font-size: 24px;
+            font-weight: bold;
+            color: black;
+        }
+        .header_left .header_movie {
+            color: red;
+        }
+        .header_right a {
+            text-decoration: none;
+            font-size: 14px;
+            color: black;
+        }
+        .header_right a:hover {
+            text-decoration: none;
+        }
+
+
+        .review-container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .review-title {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .review-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .review-actions form {
+            display: flex;
+            gap: 10px;
+        }
+
+        .review-actions button {
+            padding: 5px 10px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: #fff;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .review-actions button:hover {
+            background-color: #f0f0f0;
+            border-color: #aaa;
+        }
+
+        .review-details {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .review-image {
+            flex-shrink: 0;
+            width: 150px;
+            height: 200px;
+            border-radius: 8px;
+            object-fit: cover;
+            background-color: #ddd;
+        }
+
+        .review-info p {
+            margin: 5px 0;
+            font-size: 16px;
+        }
+
+        .review-info p strong {
+            font-weight: bold;
+            color: #444;
+        }
+
+        .review-content {
+            line-height: 1.6;
+            text-align: justify;
+            margin-top: 20px;
+        }
+
+        hr {
+            border: 0;
+            border-top: 1px solid #ddd;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header_left">
+            <a href="{% url 'movieRecord:review_list' %}">my<span class="header_movie">Movie</span>reviews</a>
+        </div>
+        <div class="header_right">
+            <a href="{% url 'movieRecord:review_create' %}">Add a New review</a>
+        </div>
+    </header>
+    <section>
+        <div class="review-container">
+            <!-- Header Section -->
+            <div class="review-header">
+                <div class="review-title">{{ list.title }}</div>
+                <div class="review-actions">
+                    <!-- 수정 버튼 -->
+                    <form action="{% url 'movieRecord:review_update' list.pk %}" method="POST">
+                        {% csrf_token %}
+                        <button type="submit" name="edit">수정</button>
+                    </form>
+                    <!-- 삭제 버튼 -->
+                    <form action="{% url 'movieRecord:review_delete' list.pk %}" method="POST">
+                        {% csrf_token %}
+                        <button type="submit" name="delete">삭제</button>
+                    </form>
+                </div>
+            </div>
+            <!-- Details Section -->
+            <div class="review-details">
+                <img src="" alt="포스터" class="review-image">
+                <div class="review-info">
+                    <p><strong>개봉년도:</strong> {{ list.year }}</p>
+                    <p><strong>감독:</strong> {{ list.director }}</p>
+                    <p><strong>주연:</strong> {{ list.actors }}</p>
+                    <p><strong>장르:</strong> {{ list.genre }}</p>
+                    <p><strong>별점:</strong> {{ list.rating }}</p>
+                    <p><strong>러닝타임:</strong> {{ list.runtime }}</p>
+                </div>
+            </div>
+            <hr>
+            <!-- Content Section -->
+            <div class="review-content">
+                {{ list.review }}
+            </div>
+        </div>
+    </section>
+</body>
+</html>

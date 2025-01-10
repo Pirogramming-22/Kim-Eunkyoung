@@ -94,48 +94,48 @@
 <body>
     <header>
         <div class="header_left">
-            <a href="./list.html">my<span class="header_movie">Movie</span>reviews</a>
+            <a href="{% url 'movieRecord:review_list' %}">my<span class="header_movie">Movie</span>reviews</a>
         </div>
         <div class="header_right">
-            <a href="#">Add a New review</a>
+            <a href="{% url 'movieRecord:review_create' %}">Add a New review</a>
         </div>
     </header>
     <section>
-        
-        <form>
+        <form action="{% url 'movieRecord:review_update' list.pk %}" method="post">
+            {% csrf_token %}
             <div class="create_title"><span>Movie</span> review</div>
             <hr>
             <br>
             <label for="title">제목:</label>
-            <input type="text" id="title" name="title" placeholder="영화 제목을 입력하세요">
+            <input type="text" id="title" name="title" placeholder="영화 제목을 입력하세요" value="{{ list.title }}">
             
             <label for="year">개봉년도:</label>
-            <input type="number" id="year" name="year" placeholder="예: 2023">
+            <input type="number" id="year" name="year" placeholder="예: 2023" value="{{ list.year }}">
             
             <label for="genre">장르:</label>
             <select id="genre" name="genre">
-                <option value="">--------</option>
-                <option value="action">액션</option>
-                <option value="comedy">코미디</option>
-                <option value="drama">드라마</option>
-                <option value="horror">호러</option>
-                <option value="sci-fi">SF</option>
+                <option value="" {% if not list.genre %}selected{% endif %}>--------</option>
+                <option value="action" {% if list.genre == "action" %}selected{% endif %}>액션</option>
+                <option value="comedy" {% if list.genre == "comedy" %}selected{% endif %}>코미디</option>
+                <option value="drama" {% if list.genre == "drama" %}selected{% endif %}>드라마</option>
+                <option value="horror" {% if list.genre == "horror" %}selected{% endif %}>호러</option>
+                <option value="sci-fi" {% if list.genre == "sci-fi" %}selected{% endif %}>SF</option>
             </select>
             
             <label for="rating">별점:</label>
-            <input type="number" id="rating" name="rating" min="0" max="5" step="0.1" placeholder="0~5">
+            <input type="number" id="rating" name="rating" min="0" max="5" step="0.1" placeholder="0~5" value="{{ list.rating }}">
             
             <label for="runtime">러닝타임:</label>
-            <input type="text" id="runtime" name="runtime" placeholder="예: 120분">
+            <input type="text" id="runtime" name="runtime" placeholder="예: 120분" value="{{ list.runtime }}">
             
             <label for="review">리뷰:</label>
-            <textarea id="review" name="review" placeholder="리뷰를 작성하세요"></textarea>
+            <textarea id="review" name="review" placeholder="리뷰를 작성하세요">{{ list.review }}</textarea>
             
             <label for="director">감독:</label>
-            <input type="text" id="director" name="director" placeholder="감독 이름을 입력하세요">
+            <input type="text" id="director" name="director" placeholder="감독 이름을 입력하세요" value="{{ list.director }}">
             
             <label for="actors">배우:</label>
-            <input type="text" id="actors" name="actors" placeholder="배우 이름을 입력하세요">
+            <input type="text" id="actors" name="actors" placeholder="배우 이름을 입력하세요" value="{{ list.actors }}">
             
             <div class="form_button">
                 <button type="submit">Save</button>

@@ -86,24 +86,32 @@
 <body>
     <header>
         <div class="header_left">
-            <a href="./list.html">my<span class="header_movie">Movie</span>reviews</a>
+            <a href="{% url 'movieRecord:review_list' %}">my<span class="header_movie">Movie</span>reviews</a>
         </div>
         <div class="header_right">
-            <a href="#">Add a New review</a>
+            <a href="{% url 'movieRecord:review_create' %}">Add a New review</a>
         </div>
     </header>
     <section class="movie-list">
+         {% for list in lists %}
         <div class="list-item">
             <div class="list-item-img">
-                <img src="{{ movieRecord.item_img }}" alt="Movie Poster">
+                <a href="{% url 'movieRecord:review_detail' list.pk %}"><img src="{{ movieRecord.item_img }}" alt="Movie Poster"></a>
             </div>
             <div class="list-item-content">
-                <div class="list-item-title">{{ movieRecord.item_title }}</div>
-                <div class="list-item-date">개봉년도 {{ movieRecord.item_created }}</div>
-                <div class="list-item-genre">장르 {{ movieRecord.item_genre }}</div>
-                <div class="list-item-star">별점 {{ movieRecord.item_star }}</div>
+                <!-- 영화 제목 -->
+                <div class="list-item-title">{{ list.title }}</div>
+                <!-- 개봉년도 -->
+                <div class="list-item-date">개봉년도: {{ list.year }}</div>
+                <!-- 장르 -->
+                <div class="list-item-genre">장르: {{ list.genre }}</div>
+                <!-- 별점 -->
+                <div class="list-item-star">별점: {{ list.rating }}</div>
             </div>
         </div>
+        {% empty %}
+        <p>리스트가 없습니다.</p>
+        {% endfor %}
     </section>
 </body>
 </html>
