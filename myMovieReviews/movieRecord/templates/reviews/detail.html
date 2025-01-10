@@ -135,10 +135,9 @@
                 <div class="review-title">{{ list.title }}</div>
                 <div class="review-actions">
                     <!-- 수정 버튼 -->
-                    <form action="{% url 'movieRecord:review_update' list.pk %}" method="POST">
-                        {% csrf_token %}
-                        <button type="submit" name="edit">수정</button>
-                    </form>
+                    <a href="{% url 'movieRecord:review_update' list.pk %}">
+                        <button type="button">수정</button>
+                    </a>
                     <!-- 삭제 버튼 -->
                     <form action="{% url 'movieRecord:review_delete' list.pk %}" method="POST">
                         {% csrf_token %}

@@ -35,16 +35,16 @@ def review_list(request):
     return render(request, 'reviews/list.html', context)
 
 def review_update(request, pk):
-    list = List.objects.get(id=pk)
+    list = get_object_or_404(List, id=pk)
     if request.method == "POST":
-        list.title = request.POST.get('title')
-        list.year = request.POST.get('year')
-        list.genre = request.POST.get('genre')
-        list.rating = request.POST.get('rating')
-        list.runtime = request.POST.get('runtime')
-        list.review = request.POST.get('review')
-        list.director = request.POST.get('director')
-        list.actors = request.POST.get('actors')
+        list.title = request.POST.get('title', list.title)
+        list.year = request.POST.get('year', list.year)
+        list.genre = request.POST.get('genre', list.genre)
+        list.rating = request.POST.get('rating', list.rating)
+        list.runtime = request.POST.get('runtime', list.runtime)
+        list.review = request.POST.get('review', list.review)
+        list.director = request.POST.get('director', list.director)
+        list.actors = request.POST.get('actors', list.actors)
         list.save()
         return redirect('movieRecord:review_detail', pk=list.pk)
     
@@ -52,6 +52,7 @@ def review_update(request, pk):
         'list': list
     }
     return render(request, 'reviews/update.html', context)
+
 
 
 def review_delete(request, pk):
