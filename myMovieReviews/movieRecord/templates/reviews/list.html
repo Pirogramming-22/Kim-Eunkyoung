@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Movie reviews</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            border-bottom: 1px solid #ddd;
+        }
+        .header_left a {
+            text-decoration: none;
+            font-size: 24px;
+            font-weight: bold;
+            color: black;
+        }
+        .header_left .header_movie {
+            color: red;
+        }
+        .header_right a {
+            text-decoration: none;
+            font-size: 14px;
+            color: black;
+        }
+        .header_right a:hover {
+            text-decoration: none;
+        }
+
+        .movie-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            padding: 40px;
+        }
+
+        .list-item {
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            width: 200px; /* 카드 너비 */
+            text-align: center;
+            padding: 10px;
+        }
+
+        .list-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .list-item-img img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+
+        .list-item-content {
+            padding: 15px;
+        }
+
+        .list-item-title {
+            font-size: 1rem;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .list-item-date, .list-item-genre, .list-item-star {
+            font-size: 0.9rem;
+            color: #7f8c8d;
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header_left">
+            <a href="{% url 'movieRecord:review_list' %}">my<span class="header_movie">Movie</span>reviews</a>
+        </div>
+        <div class="header_right">
+            <a href="{% url 'movieRecord:review_create' %}">Add a New review</a>
+        </div>
+    </header>
+    <section class="movie-list">
+         {% for list in lists %}
+        <div class="list-item">
+            <div class="list-item-img">
+                <a href="{% url 'movieRecord:review_detail' list.pk %}"><img src="{{ movieRecord.item_img }}" alt="Movie Poster"></a>
+            </div>
+            <div class="list-item-content">
+                <!-- 영화 제목 -->
+                <div class="list-item-title">{{ list.title }}</div>
+                <!-- 개봉년도 -->
+                <div class="list-item-date">개봉년도: {{ list.year }}</div>
+                <!-- 장르 -->
+                <div class="list-item-genre">장르: {{ list.genre }}</div>
+                <!-- 별점 -->
+                <div class="list-item-star">별점: {{ list.rating }}</div>
+            </div>
+        </div>
+        {% empty %}
+        <p>리스트가 없습니다.</p>
+        {% endfor %}
+    </section>
+</body>
+</html>
