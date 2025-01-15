@@ -1,0 +1,66 @@
+.tool-container {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.title {
+    font-size: 2.5em;
+    color: #34ebbd;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+.tool-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.tool-table th, .tool-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+.tool-table th {
+    background-color: #34ebbd;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.tool-table td {
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+.tool-table tr:nth-child(even) td {
+    background-color: #eef9f6;
+}
+
+.tool-table tr:hover td {
+    background-color: #d1f5ec;
+}
+
+.pagination {
+    text-align: center;
+}
+
+.pagination button {
+    padding: 10px 15px;
+    margin: 5px;
+    background-color: #34ebbd;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.pagination button:hover {
+    background-color: #2ccfa5;
+}
