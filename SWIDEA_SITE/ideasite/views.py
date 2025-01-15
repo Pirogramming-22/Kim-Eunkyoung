@@ -25,18 +25,14 @@ def list(request):
 
 
 def create(request):
-    tools = Tool.objects.all()  # devtool의 Tool 데이터 가져오기
     if request.method == 'POST':
         form = Ideaform(request.POST, request.FILES)
         if form.is_valid():
-            idea = form.save(commit=False)
-            tool_id = request.POST.get('tool')  # 선택한 예상 개발툴 ID 가져오기
-            idea.devtool = Tool.objects.get(id=tool_id)  # 예상 개발툴 설정
-            idea.save()
-            return redirect('ideasite:detail', pk=idea.pk)
+            form.save()
+            return redirect('ideasite:list')  # 등록 후 목록 페이지로 이동
     else:
         form = Ideaform()
-    return render(request, 'ideasite/create.html', {'form': form, 'tools': tools})
+    return render(request, 'ideasite/create.html', {'form': form})
 
 def detail(request, pk):
     idea = get_object_or_404(Idea, pk=pk)

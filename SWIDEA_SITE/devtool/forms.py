@@ -5,3 +5,7 @@ class Toolform(forms.ModelForm):
     class Meta:
         model = Tool
         fields = ('__all__')
+    
+
+    def __str__(self):
+        return self.name

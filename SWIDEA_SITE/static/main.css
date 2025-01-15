@@ -1,0 +1,90 @@
+/* Reset 기본 스타일 초기화 */
+body, h1, h2, h3, p, ul, ol, li, a, header, div {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+/* Header 스타일 */
+header {
+    background-color: #4CAF50; /* 헤더 배경색 */
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    border-bottom: 4px solid #388E3C;
+}
+
+/* 헤더 제목 스타일 */
+.header_title {
+    font-size: 2rem; /* 제목 크기 조정 */
+    font-weight: bold;
+    margin: 0;
+    color: white;
+}
+
+.header_title .title {
+    color: #76FF03; /* 'SW Idea' 강조 색상 */
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+/* 링크 스타일 */
+header a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 0 1rem;
+    transition: color 0.3s ease;
+    font-size: 1rem; /* 링크 크기 조정 */
+}
+
+header a:hover {
+    color: #C8E6C9; /* 링크 hover 색상 */
+    text-decoration: underline;
+}
+
+/* 링크 아래에 구분선 추가 */
+header a:not(:first-child) {
+    border-bottom: 2px solid transparent;
+    padding-bottom: 5px;
+}
+
+header a:hover:not(:first-child) {
+    border-bottom: 2px solid white; /* hover 시 구분선 표시 */
+}
+
+/* Container 스타일 */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 1rem;
+    background: white;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    header a {
+        margin: 0.5rem 0;
+    }
+
+    .container {
+        padding: 1rem;
+    }
+}

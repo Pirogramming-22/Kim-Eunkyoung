@@ -35,7 +35,7 @@
             {% else %}
             <img src="{% static 'images/default.png' %}" alt="Default Image">
             {% endif %}
-            <a href="{% url 'ideasite:detail' idea.pk %}">
+            <a href="{% url 'ideasite:detail' idea.pk %}" style="text-decoration: none; color: black;">
                 <h2>{{ idea.title }}</h2>
             </a>
             <p>예상 개발 툴: {{ idea.devtool.name }}</p>

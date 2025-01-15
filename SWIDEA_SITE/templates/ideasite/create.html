@@ -15,15 +15,6 @@
         {% csrf_token %}
         {{ form.as_p }}
 
-         <!-- 예상 개발툴 선택 드롭다운 -->
-         <label for="tool">예상 개발툴:</label>
-         <select id="tool" name="tool" required>
-             <option value="">-- 선택 --</option>
-             {% for tool in tools %}
-             <option value="{{ tool.id }}">{{ tool.name }}</option>
-             {% endfor %}
-         </select>
-
         <button type="submit">SUBMIT</button>
     </form>
 </div>
