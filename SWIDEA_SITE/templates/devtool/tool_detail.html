@@ -1,0 +1,49 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block title %}DevTool Detail{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'ideasite/detail.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="detail-container">
+    <h1 class="title">DevTool Detail</h1>
+    <p class="subtitle">개발툴 세부내용 페이지 입니다. 자신이 다룰 수 있는 개발툴에 대한 상세내용을 확인해 보아요.</p>
+
+    <div class="detail-card">
+        <h2>{{ tool.name }}</h2>
+        <p class="tool-kind">{{ tool.kind }}</p>
+        <p class="tool-description">{{ tool.content }}</p>
+
+        <hr>
+
+        <h3>➤ 만들 수 있는 SW 목록</h3>
+        <ul>
+            {% for idea in tool.ideas.all %}
+            <li>
+                <a href="{%  url 'ideasite:detail' idea.pk %}" style="text-decoration: none; color: black;">
+                    {{ idea.title }}
+                </a>
+            </li>
+            {% empty %}
+            <li>등록된 SW가 없습니다.</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="button-group">
+        <form method="post" action="{% url 'devtool:tool_delete' tool.pk %}">
+            {% csrf_token %}
+            <button type="submit" class="delete-btn">삭제</button>
+        </form>
+        <a href="{% url 'devtool:tool_list' %}">
+            <button type="button" class="list-btn">목록</button>
+        </a>
+        <a href="{% url 'devtool:tool_update' tool.pk %}">
+            <button type="button" class="edit-btn">수정</button>
+        </a>
+    </div>
+</div>
+{% endblock %}

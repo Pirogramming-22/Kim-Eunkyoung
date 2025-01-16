@@ -1,0 +1,72 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block title %}Idea List{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'ideasite/list.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="title">Idea List</h1>
+    <p class="subtitle">나의 아이디어를 잊지 말고 기록해보세요</p>
+
+      <!-- CSRF 토큰 추가 -->
+      <input type="hidden" id="csrf-token" value="{{ csrf_token }}">
+    <!-- 필터 -->
+    <div class="filter">
+        <form method="get">
+            <select id="sortCriteria" name="sort" onchange="this.form.submit()">
+                <option value="찜하기순" {% if sort_criteria == '찜하기순' %}selected{% endif %}>찜하기순</option>
+                <option value="등록순" {% if sort_criteria == '등록순' %}selected{% endif %}>등록순</option>
+                <option value="최신순" {% if sort_criteria == '최신순' %}selected{% endif %}>최신순</option>
+                <option value="이름순" {% if sort_criteria == '이름순' %}selected{% endif %}>이름순</option>
+            </select>
+        </form>
+    </div>
+
+    <!-- 카드 목록 -->
+    <div class="card-list">
+        {% for idea in ideas %}
+        <div class="card">
+            {% if idea.image %}
+            <img src="{{ idea.image.url }}" alt="{{ idea.title }}">
+            {% else %}
+            <img src="{% static 'images/default.png' %}" alt="Default Image">
+            {% endif %}
+            <a href="{% url 'ideasite:detail' idea.pk %}" style="text-decoration: none; color: black;">
+                <h2>{{ idea.title }}</h2>
+            </a>
+            <p>예상 개발 툴: {{ idea.devtool.name }}</p>
+            
+            <div class="interest-container">
+                <p>아이디어 관심도: </p>
+                
+                <!-- - 버튼 -->
+                <form method="post" action="{% url 'ideasite:update_interest' idea.pk %}">
+                    {% csrf_token %}
+                    <input type="hidden" name="action" value="decrease">
+                    <button type="submit">-</button>
+                </form>
+                {{ idea.interest }}
+                <!-- + 버튼 -->
+                <form method="post" action="{% url 'ideasite:update_interest' idea.pk %}">
+                    {% csrf_token %}
+                    <input type="hidden" name="action" value="increase">
+                    <button type="submit">+</button>
+                </form>
+            </div>
+        </div>
+        {% empty %}
+        <p>등록된 아이디어가 없습니다.</p>
+        {% endfor %}
+    </div>
+
+    <!-- 페이지네이션 -->
+    <div class="pagination">
+        <button>1</button>
+        <button>2</button>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,96 @@
+/* 상세 페이지 컨테이너 */
+.detail-container {
+    text-align: center;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    margin: 50px auto;
+    max-width: 700px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.detail-container h1 {
+    font-size: 2em;
+    color: #00cc66; /* 초록색 제목 */
+    margin-bottom: 10px;
+}
+
+.detail-container p {
+    font-size: 0.9em;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+/* 상세 카드 */
+.detail-card {
+    text-align: left;
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.detail-card img {
+    max-width: 150px;
+    display: block;
+    margin: 0 auto 20px auto;
+}
+
+.detail-card h2 {
+    text-align: center;
+    font-size: 1.5em;
+    margin: 10px 0;
+}
+
+.detail-card .star {
+    color: #FFD700; /* 금색 별 */
+    font-size: 1.2em;
+}
+
+.detail-card ul {
+    list-style: none;
+    padding: 0;
+}
+
+.detail-card ul li {
+    font-size: 1em;
+    margin: 10px 0;
+    color: #333;
+}
+
+.detail-card ul li strong {
+    color: #000;
+}
+
+/* 버튼 그룹 */
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.button-group button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    color: white;
+}
+
+.delete-btn {
+    background-color: #ff4d4d; /* 빨간색 삭제 버튼 */
+}
+
+.list-btn {
+    background-color: #00cc66; /* 초록색 목록 버튼 */
+}
+
+.edit-btn {
+    background-color: #4d79ff; /* 파란색 수정 버튼 */
+}
+
+.button-group button:hover {
+    opacity: 0.9;
+}

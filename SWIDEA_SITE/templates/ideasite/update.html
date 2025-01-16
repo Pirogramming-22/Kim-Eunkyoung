@@ -1,0 +1,24 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block title %}아이디어 수정{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'ideasite/create.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="form-container">
+    <h1>Idea Update</h1>
+    <p>아이디어 수정 페이지입니다. 작성했던 내용을 업데이트하세요!</p>
+    <form
+    action="{% url 'ideasite:update' pk %}"
+    method="post"
+  >
+    {%csrf_token%} {{form.as_p}}
+    <button class="btn btn-primary">수정 완료</button>
+  </form>
+</div>
+{% endblock %}
+
+

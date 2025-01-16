@@ -1,0 +1,22 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block title %}DevTool Update{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'ideasite/create.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="form-container">
+    <h1>DevTool Update</h1>
+    <p>개발툴 수정 페이지 입니다. 내용을 변경하거나 구체화하세요.</p>
+    <form
+    action="{% url 'devtool:tool_update' pk %}"
+    method="post"
+  >
+    {%csrf_token%} {{form.as_p}}
+    <button class="btn btn-primary">수정 완료</button>
+  </form>
+</div>
+{% endblock %}

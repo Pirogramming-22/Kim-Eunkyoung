@@ -1,0 +1,44 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block title %}아이디어 상세 보기{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'ideasite/detail.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="detail-container">
+    <h1>{{ idea.title }}</h1>
+    <p>아이디어 세부내용 페이지입니다. 당신이 구현하려 한 아이디어를 자세히 살펴보세요.</p>
+
+    <div class="detail-card">
+        <img src="{{ idea.image.url }}" alt="아이디어 이미지">
+        <ul>
+            <li><strong>아이디어 관심도:</strong> {{ idea.interest }}</li>
+            <li><strong>예상 개발툴:</strong> 
+                <a href="{% url 'devtool:tool_detail' idea.devtool.pk %}" style="text-decoration: none; color: black;">
+                    {{ idea.devtool.name }}
+                </a>
+            </li>
+            <li><strong>아이디어 설명:</strong> {{ idea.content }}</li>
+            <li><strong>작성일:</strong> {{ idea.created_date }}</li>
+            <li><strong>수정일:</strong> {{ idea.updated_date }}</li>
+        </ul>
+    </div>
+
+    <!-- 버튼 그룹 -->
+    <div class="button-group">
+        <form method="post" action="{% url 'ideasite:delete' idea.pk %}">
+            {% csrf_token %}
+            <button type="submit" class="delete-btn">삭제</button>
+        </form>
+        <a href="{% url 'ideasite:list' %}">
+            <button type="button" class="list-btn">목록</button>
+        </a>
+        <a href="{% url 'ideasite:update' idea.pk %}">
+            <button type="button" class="edit-btn">수정</button>
+        </a>
+    </div>
+</div>
+{% endblock %}
