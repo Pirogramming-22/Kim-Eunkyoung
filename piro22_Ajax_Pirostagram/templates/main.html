@@ -144,13 +144,6 @@
             <div class="posts__tab">3</div>
           </nav>
           <article class="posts__contents">
-            {% for post in posts %}
-            <div class="posts__photo">
-              <a href="{% url 'detail' post.id %}">
-                <img src="{{ post.image.url }}" alt="게시물 사진" />
-              </a>
-            </div>
-            {% endfor %}
             <div class="posts__photo">
               <img src="{% static 'image/postImage.png' %}" alt="게시물">
             </div>
@@ -158,7 +151,19 @@
               <button onclick="onClickLike({{ post.id }})">
                   ❤️ 좋아요 <span id="like-count-{{ post.id }}">{{ post.like }}</span>
               </button>
-          </div>          
+          </div>
+           <!-- 댓글 섹션 추가 -->
+        <div class="comments" id="comments-{{ post.id }}">
+            {% for comment in post.comments.all %}
+            <div class="comment">
+              <p>{{ comment.content }}</p>
+              <small>{{ comment.created_at }}</small>
+            </div>
+        {% endfor %}
+        </div>
+      <textarea id="comment-input-{{ post.id }}" placeholder="댓글을 입력하세요..."></textarea>
+      <button onclick="addComment({{ post.id }})">댓글 추가</button>
+    </div>         
           </article>
         </section>
       </main>
@@ -174,29 +179,70 @@
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script>
-      // CSRF 토큰 가져오기
-      const getCSRFToken = () => {
-          const csrfMeta = document.querySelector('meta[name="csrf-token"]');
-          return csrfMeta ? csrfMeta.getAttribute('content') : '';
+      // 좋아요 버튼 클릭 처리
+      const onClickLike = async (id) => {
+        const url = "/like_ajax/";
+        const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
+        try {
+          const response = await axios.post(url, { id: id, type: "like" }, {
+            headers: {
+              "X-CSRFToken": csrfToken,
+              "Content-Type": "application/json",
+            },
+          });
+
+          const { like } = response.data;
+          document.getElementById(`like-count-${id}`).textContent = like;
+        } catch (error) {
+          console.error("Error liking post:", error);
+        }
       };
 
-      const onClickLike = async (postId) => {
-    try {
-      const response = await axios.post('/like_ajax/', {
-      id: postId,
-      type: 'like', // 요청에 필요한 데이터 추가
-  });
-        const data = response.data;
+      // 댓글 추가 처리
+      const addComment = async (postId) => {
+        const commentInput = document.getElementById(`comment-input-${postId}`);
+        const content = commentInput.value.trim();
 
-        if (data.like !== undefined) {
-            const likeElement = document.getElementById(`like-count-${postId}`);
-            likeElement.textContent = data.like;
+        if (!content) {
+          alert("댓글 내용을 입력하세요.");
+          return;
         }
-    } catch (error) {
-        console.error('Error:', error);
-    }
-};
 
+        const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
+        try {
+          const response = await axios.post("/add_comment/", {
+            post_id: postId,
+            content: content,
+          }, {
+            headers: {
+              "X-CSRFToken": csrfToken,
+              "Content-Type": "application/json",
+            },
+          });
+
+          const data = response.data;
+          if (data.error) {
+            console.error("Error:", data.error);
+            return;
+          }
+
+          // 댓글 리스트에 추가
+          const commentsContainer = document.getElementById(`comments-${postId}`);
+          const newComment = document.createElement("div");
+          newComment.className = "comment";
+          newComment.innerHTML = `
+            <p>${data.content}</p>
+            <small>${data.created_at}</small>
+          `;
+          commentsContainer.appendChild(newComment);
+
+          commentInput.value = "";
+        } catch (error) {
+          console.error("Error adding comment:", error);
+        }
+      };
     </script>
   </body>
 </html>
